@@ -69,9 +69,6 @@ class _FlipCardState extends State<FlipCard>
   Animation<double> _frontRotation;
   Animation<double> _backRotation;
 
-  bool counter=false;
-  //bool isFront = true;
-
   @override
   void initState() {
     super.initState();
@@ -109,27 +106,13 @@ class _FlipCardState extends State<FlipCard>
     super.didChangeDependencies();
 
     this.widget.flipBloc.isFront.listen((value){
-      print ("counter 0  $counter");
-      //if (counter==true){
         if (value==false){
           controller.reverse();
         } else {
           controller.forward();
         }
-     // }
-     // counter=true;
-      print("counter1 $counter");
     });
   }
-//  _toggleCard() {
-//    if (isFront) {
-//      controller.forward();
-//    } else {
-//      controller.reverse();
-//    }
-//    isFront = !isFront;
-//  }
-
 
   @override
   Widget build(BuildContext context) {
